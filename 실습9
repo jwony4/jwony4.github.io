@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>2023년 4월 27일 실습</title>
+<script>
+let input = prompt("요일을 입력하세요: ");
+
+switch(input) {
+    case "월":
+    case "화":
+    case "수":
+    case "목":
+    case "금":
+      	document.write("<h3>월화수목금토일</h3><hr>");
+        document.write(input+"요일은 등교합니다.");
+        break;
+    case "토":
+    case "일":
+        document.write("<h3>월화수목금토일</h3><hr>");
+        document.write(input+"요일은 휴무일입니다.");
+        break;
+    default:
+        alert("잘못된 입력입니다. 다시 입력해주세요.");
+        break;
+}
+</script>
+</head>
+<body>
+</body>
+</html>

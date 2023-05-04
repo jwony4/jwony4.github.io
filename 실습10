@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>2023월 5월 4일</title>
+<script>
+let num = prompt("숫자를 입력하세요.", "5");
+if(num<=0){
+	document.write("<h3>별문자출력하기</h3><hr>");
+	document.write("입력 오류 입니다.");
+}
+else {
+	document.write("<h3>별문자출력하기</h3><hr>");
+	let stars ='';
+	for (var i=1; i<=num; i++){
+		stars += "*";
+		document.write(stars + "<br>");
+	}
+}
+</script>
+</head>
+<body>
+</body>
+</html>

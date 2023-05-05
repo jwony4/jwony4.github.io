@@ -1,10 +1,88 @@
+<!DOCTYPE html>
 <html>
-<head><title>임준원의 Github입니다!</title></head>
+<head>
+	<meta charset="utf-8">
+	<title>유니콘 Vaping</title>
+	<style>
+		body {
+			margin: 0;
+			padding: 0;
+		}
+
+		header {
+			background-color: #F2F2F2;
+			text-align: center;
+			padding: 20px;
+		}
+
+		nav {
+			background-color: #333;
+			overflow: hidden;
+			display: flex;
+			justify-content: space-around;
+			padding: 10px;
+		}
+
+		nav a {
+			color: white;
+			text-decoration: none;
+			font-size: 20px;
+			font-weight: bold;
+			padding: 10px;
+		}
+
+		nav a:hover {
+			background-color: #4CAF50;
+			border-radius: 5px;
+		}
+
+		h1 {
+			font-size: 40px;
+			font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+			color: #333;
+			margin-top: 50px;
+			text-align: center;
+		}
+	</style>
+</head>
 <body>
-<hr>
-<iframe src="file:///C:/Users/jwony/OneDrive/%EB%B0%94%ED%83%95%20%ED%99%94%EB%A9%B4/github.html" name="left" width="300" height="500">	
-</iframe>
-<iframe src="file:///C:/Users/jwony/OneDrive/%EB%B0%94%ED%83%95%20%ED%99%94%EB%A9%B4/zz.html" name="right" width="600" height="500">	
-</iframe>
+	<header>
+		<h1>유니콘 vaping</h1>
+	</header>
+
+	<nav>
+		<a href="vaping_liquid.html">vaping 액상</a>
+		<a href="vaping_device.html">vaping 기기</a>
+		<a href="vaping_community.html">vaping 커뮤니티</a>
+		<a href="offline_shop.html">오프라인 vaping shop</a>
+	</nav>
+
+	<script>
+		// 각각의 메뉴를 클릭하면 해당하는 페이지로 이동
+		const vapingLiquidLink = document.querySelector("nav a[href='vaping_liquid.html']");
+		const vapingDeviceLink = document.querySelector("nav a[href='vaping_device.html']");
+		const vapingCommunityLink = document.querySelector("nav a[href='vaping_community.html']");
+		const offlineVapingShopLink = document.querySelector("nav a[href='offline_vaping_shop.html']");
+
+		vapingLiquidLink.addEventListener("click", function(event) {
+			event.preventDefault();
+			window.location.href = vapingLiquidLink.getAttribute("href");
+		});
+
+		vapingDeviceLink.addEventListener("click", function(event) {
+			event.preventDefault();
+			window.location.href = vapingDeviceLink.getAttribute("href");
+		});
+
+		vapingCommunityLink.addEventListener("click", function(event) {
+			event.preventDefault();
+			window.location.href = vapingCommunityLink.getAttribute("href");
+		});
+
+		offlineVapingShopLink.addEventListener("click", function(event) {
+			event.preventDefault();
+			window.location.href = offlineVapingShopLink.getAttribute("href");
+		});
+	</script>
 </body>
 </html>

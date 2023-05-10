@@ -1,55 +1,98 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>유니콘 Vaping</title>
+    <title>유니콘 vaping</title>
+    <meta charset="utf-8">
     <style>
       body {
         font-family: Arial, sans-serif;
+        background-color: #f5f5f5;
         margin: 0;
         padding: 0;
       }
-      header {
+
+      .header {
+        text-align: center;
         background-color: #333;
         color: #fff;
-        padding: 1em;
+        padding: 20px;
+      }
+
+      .menu {
         text-align: center;
+        background-color: #eee;
+        padding: 10px;
+        margin-bottom: 20px;
       }
-      nav {
-        background-color: #f2f2f2;
-        border: 1px solid #ccc;
-        display: flex;
-        justify-content: space-between;
-        padding: 1em;
-      }
-      nav a {
-        color: #333;
+
+      .menu a {
         text-decoration: none;
-        margin-right: 1em;
+        color: #333;
+        margin: 0 10px;
       }
-      main {
+
+      .content {
+        padding: 20px;
+        background-color: #fff;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      }
+
+      h1 {
+        margin-top: 0;
+      }
+
+      .device {
         display: flex;
         justify-content: center;
         align-items: center;
-        height: calc(100vh - 100px);
+        flex-direction: column;
+        margin-bottom: 20px;
+        padding: 20px;
+        background-color: #fff;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
       }
-      main h2 {
-        font-size: 3em;
+
+      .device img {
+        width: 200px;
+        height: 200px;
+        object-fit: cover;
+        margin-bottom: 10px;
       }
     </style>
   </head>
   <body>
-    <header>
-      <h1>Vaping 기기</h1>
-    </header>
-    <nav>
+    <div class="header">
+      <h1>유니콘 vaping</h1>
+    </div>
+    <div class="menu">
       <a href="index.html">홈</a>
       <a href="vaping_liquid.html">Vaping 액상</a>
       <a href="vaping_device.html">Vaping 기기</a>
       <a href="vaping_community.html">Vaping 커뮤니티</a>
-      <a href="offline_shop.html">오프라인 Vaping 매장</a>
-    </nav>
-    <main>
-      <h2>Vaping 기기 페이지입니다.</h2>
-    </main>
+      <a href="offline_shop.html">오프라인 Vaping Shop</a>
+    </div>
+    <div class="content">
+      <h1>유니콘의 기기 추천</h1>
+      <div class="device">
+        <img src="device1.png" alt="유웰 발라리안">
+        <h3>유웰 발라리안</h3>
+        <p>월등한 닷만 표현, 월등한 코일 수명, 흡압조절, 간편한 액상 주입</p>
+      </div>
+      <div class="device">
+        <img src="device2.png" alt="부푸 브이쓰루 프로">
+        <h3>부푸 브이쓰루 프로</h3>
+        <p>약한 흡압감, 진하고 풍부한 맛표현, 가변조절</p>
+      </div>
+      <div class="device">
+        <img src="device3.png" alt="아보카도 베이비">
+        <h3>아보카도 베이비</h3>
+        <p>감각적인 디자인, 가변조절, 흡압조절, 훌륭한 맛표현</p>
+      </div>
+      <div class="device">
+        <img src="device4.png" alt="유웰 하보크">
+        <h3>유웰 하보크</h3>
+        <p>액상용량 4ml, 콤팩트한 디자인, 우수한 성능, 월등한 코일 수명</p>
+      </div>
+    </div>
   </body>
 </html>

@@ -1,55 +1,98 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>유니콘 Vaping</title>
+    <title>유니콘 vaping</title>
+    <meta charset="utf-8">
     <style>
       body {
         font-family: Arial, sans-serif;
+        background-color: #f5f5f5;
         margin: 0;
         padding: 0;
       }
-      header {
+
+      .header {
+        text-align: center;
         background-color: #333;
         color: #fff;
-        padding: 1em;
+        padding: 20px;
+      }
+
+      .menu {
         text-align: center;
+        background-color: #eee;
+        padding: 10px;
+        margin-bottom: 20px;
       }
-      nav {
-        background-color: #f2f2f2;
-        border: 1px solid #ccc;
-        display: flex;
-        justify-content: space-between;
-        padding: 1em;
-      }
-      nav a {
-        color: #333;
+
+      .menu a {
         text-decoration: none;
-        margin-right: 1em;
+        color: #333;
+        margin: 0 10px;
       }
-      main {
+
+      .content {
+        padding: 20px;
+        background-color: #fff;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      }
+
+      h1 {
+        margin-top: 0;
+      }
+
+      .liquid {
         display: flex;
         justify-content: center;
         align-items: center;
-        height: calc(100vh - 100px);
+        flex-direction: column;
+        margin-bottom: 20px;
+        padding: 20px;
+        background-color: #fff;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
       }
-      main h2 {
-        font-size: 3em;
+
+      .liquid img {
+        width: 200px;
+        height: 200px;
+        object-fit: cover;
+        margin-bottom: 10px;
       }
     </style>
   </head>
   <body>
-    <header>
-      <h1>Vaping 액상</h1>
-    </header>
-    <nav>
+    <div class="header">
+      <h1>유니콘 vaping</h1>
+    </div>
+    <div class="menu">
       <a href="index.html">홈</a>
       <a href="vaping_liquid.html">Vaping 액상</a>
       <a href="vaping_device.html">Vaping 기기</a>
       <a href="vaping_community.html">Vaping 커뮤니티</a>
-      <a href="offline_shop.html">오프라인 Vaping 매장</a>
-    </nav>
-    <main>
-      <h2>Vaping 액상 페이지입니다.</h2>
-    </main>
+      <a href="offline_shop.html">오프라인 Vaping Shop</a>
+    </div>
+    <div class="content">
+      <h1>유니콘의 액상 추천</h1>
+      <div class="liquid">
+        <img src="liquid1.png" alt="blvk 스피아민트">
+        <h3>blvk 스피아민트</h3>
+        <p>인위적인 쿨링이 아닌 시원함과 깔끔하고 달지 않은 스피아민트 맛</p>
+      </div>
+      <div class="liquid">
+        <img src="liquid2.png" alt="Flex 피치 엔딩">
+        <h3>Flex 피치 엔딩</h3>
+        <p>아이스티 복숭아 맛</p>
+      </div>
+      <div class="liquid">
+        <img src="liquid3.png" alt="레드 애플">
+        <h3>7Daze 레드 애플</h3>
+        <p>시원하고 상쾌한 사과 주스 맛</p>
+      </div>
+      <div class="liquid">
+        <img src="liquid4.png" alt="동경 바나나">
+        <h3>동경 바나나</h3>
+        <p>도쿄 바나나 빵 맛</p>
+      </div>
+    </div>
   </body>
 </html>

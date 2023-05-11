@@ -1,55 +1,134 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>유니콘 Vaping</title>
+    <title>유니콘 vaping</title>
+    <meta charset="utf-8">
     <style>
       body {
         font-family: Arial, sans-serif;
+        background-color: #f5f5f5;
         margin: 0;
         padding: 0;
       }
-      header {
+
+      .header {
+        text-align: center;
         background-color: #333;
         color: #fff;
-        padding: 1em;
+        padding: 20px;
+      }
+
+      .menu {
         text-align: center;
+        background-color: #eee;
+        padding: 10px;
+        margin-bottom: 20px;
       }
-      nav {
-        background-color: #f2f2f2;
-        border: 1px solid #ccc;
-        display: flex;
-        justify-content: space-between;
-        padding: 1em;
-      }
-      nav a {
-        color: #333;
+
+      .menu a {
         text-decoration: none;
-        margin-right: 1em;
+        color: #333;
+        margin: 0 10px;
       }
-      main {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: calc(100vh - 100px);
+
+      .content {
+        padding: 20px;
+        background-color: #fff;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
       }
-      main h2 {
-        font-size: 3em;
+
+      h1 {
+        margin-top: 0;
+      }
+
+      .post {
+        margin-bottom: 20px;
+        padding: 20px;
+        background-color: #fff;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      }
+
+      .post-title {
+        font-size: 24px;
+        margin-bottom: 10px;
+      }
+
+      .post-content {
+        margin-bottom: 10px;
+      }
+
+      .post-author {
+        font-weight: bold;
+        margin-bottom: 5px;
+      }
+
+      .post-date {
+        color: #777;
+        font-size: 12px;
+      }
+      .comment {
+        margin-bottom: 10px;
+        padding: 10px;
+        background-color: #f5f5f5;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+      }
+
+      .comment-author {
+        font-weight: bold;
+      }
+
+      .comment-date {
+        color: #777;
+        font-size: 12px;
+      }
+
+      .comment-content {
+        margin-top: 5px;
       }
     </style>
   </head>
   <body>
-    <header>
-      <h1>Vaping 커뮤니티</h1>
-    </header>
-    <nav>
+    <div class="header">
+      <h1>유니콘 vaping</h1>
+    </div>
+    <div class="menu">
       <a href="index.html">홈</a>
       <a href="vaping_liquid.html">Vaping 액상</a>
       <a href="vaping_device.html">Vaping 기기</a>
-      <a href="vaping_community.html">Vaping 커뮤니티</a>
-      <a href="offline_shop.html">오프라인 Vaping 매장</a>
-    </nav>
-    <main>
-      <h2>Vaping 커뮤니티 페이지입니다.</h2>
-    </main>
+      <a href="vaping_community.html">Vaping 기기/액상 후기</a>
+      <a href="offline_shop.html">오프라인 Vaping Shop</a>
+    </div>
+    <div class="content">
+      <h1>Vaping 기기/액상 후기</h1>
+      <div class="post">
+        <h2 class="post-title">*****필독*****</h2>
+        <p class="post-content">기기/액상 후기를 직접 남기시는 것이 아닌 관리자가 취합해서 올려드립니다. 양해 부탁드립니다.</p>
+        <p class="post-author">작성자: jwony Lim(관리자)</p>
+        <p class="post-date">작성일: 2023-04-01-10:00</p>
+      </div>
+      <div class="post">
+        <h2 class="post-title">발리리안 맥스 후기</h2>
+        <p class="post-content">크기가 커졌는데 그립감이 더 좋아졌어요. 맛은 전작대비 밍밍해졌습니다. 흡압 조절은 범위가 넓은데 실제로는 거의 닫는 쪽으로 가야 차이가 느껴지고 작동이 됩니다!</p>
+        <p class="post-author">작성자: bk****</p>
+        <p class="post-date">작성일: 2023-04-11-10:57</p>
+      </div>
+      <div class="comment">
+        <div class="comment-author">관리자</div>
+        <div class="comment-date">2023-04-11-11:23</div>
+        <div class="comment-content">후기 감사합니다! 포인트 넣어드렸습니다~~</div>
+      </div>
+      <div class="post">
+        <h2 class="post-title">헬베이프 젤로 전자담배 입호흡 기기 한달 후기</h2>
+        <p class="post-content">누수 없고 맛 표현은 약한데 부스터 팟 쓰면 괜찮아요! 코일 수명은 많이 짧은 편이고 부스터 3개로 한 달정도 버팁니다</p>
+        <p class="post-author">작성자: rsag**********</p>
+        <p class="post-date">작성일: 2023-04-19-18:36</p>
+      </div>
+      <div class="comment">
+        <div class="comment-author">관리자</div>
+        <div class="comment-date">2023-04-19-19:05</div>
+        <div class="comment-content">후기 감사합니다! 포인트 넣어드렸습니다~~</div>
+      </div>
+    </div>
   </body>
 </html>

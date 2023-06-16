@@ -1,0 +1,199 @@
+#include <iostream>
+#include <fstream>
+#include <stdexcept>
+#include <stack>
+#include <sstream>
+
+using namespace std;
+
+class Calculator {             //전에 구현한 부분
+public:
+    virtual int calculate(int a, int b) = 0;
+    virtual double calculate(double a, double b) = 0;
+    virtual ~Calculator() {}
+};
+
+class IntCalculator : public Calculator {
+public:
+    int calculate(int a, int b) override {
+        throw logic_error("정수 피연산자의 작업 오류입니다.");
+    }
+
+    double calculate(double a, double b) override {
+        throw logic_error("정수 피연산자의 작업 오류입니다.");
+    }
+};
+
+class DoubleCalculator : public Calculator {
+public:
+    int calculate(int a, int b) override {
+        throw logic_error("실수 피연산자의 작업 오류입니다.");
+    }
+
+    double calculate(double a, double b) override {
+        throw logic_error("실수 피연산자의 작업 오류입니다.");
+    }
+};
+
+class Addition : public Calculator {
+public:
+    int calculate(int a, int b) override {
+        return a + b;
+    }
+
+    double calculate(double a, double b) override {
+        return a + b;
+    }
+};
+
+class Subtraction : public Calculator {
+public:
+    int calculate(int a, int b) override {
+        return a - b;
+    }
+
+    double calculate(double a, double b) override {
+        return a - b;
+    }
+};
+
+class Multiplication : public Calculator {
+public:
+    int calculate(int a, int b) override {
+        return a * b;
+    }
+
+    double calculate(double a, double b) override {
+        return a * b;
+    }
+};
+
+class Division : public Calculator {
+public:
+    int calculate(int a, int b) override {
+        if (b == 0) {
+            throw runtime_error("0으로 나눌 수 없습니다.");
+        }
+        else return a / b;
+    }
+
+    double calculate(double a, double b) override {
+        if (b == 0) {
+            throw runtime_error("0으로 나눌 수 없습니다.");
+        }
+        else return a / b;
+    }
+};
+
+template<typename T>
+class CalculatorProgram {
+public:
+    void run() {      //run 함수
+        string inputExpression;    
+        string outputFilename;           // 둘다 string으로 선언
+
+        cout << "수식을 입력하세요: ";
+        cin >> inputExpression;        // 인풋익스프레션으로 수식 받기
+        cout << "저장할 파일 이름을 입력하세요: ";
+        cin >> outputFilename;     // 아웃풋파일네임으로 파일 이름 받기
+
+        stack<T> operandStack;   // 피연산자 저장하는 스텍
+        stack<char> operatorStack;    //연산자 저장하는 스텍
+
+        for (size_t i = 0; i < inputExpression.length(); i++) { //전체 수식의 길이만큼 처음부터 끝까지 읽음
+            char token = inputExpression[i];  //문자형 변수 토큰에 inputExpression 복사?
+
+            if (isdigit(token)) {   //isdigit 이라는 숫자를 판단하는 함수 적용
+                stringstream ss;  //stringstream 클래스인 객체 ss 선언
+                ss << token;      // isdigit(token) 을 통해 숫자면 ss에 넣기
+                T number; // T타입 변수 number 선언
+                ss >> number;   // ss값을 number에 저장
+                operandStack.push(number);   //피연산자 스텍에 number을 푸쉬하기
+            }
+            else if (token == '+' || token == '-' || token == '*' || token == '/') {   //사칙연산이면
+                while (!operatorStack.empty() && hasPrecedence(operatorStack.top(), token)) {
+                    evaluateTop(operandStack, operatorStack);
+                } //연산자 스텍이 비어있지 않을때 연산자 스텍의 맨위 연산자를 반환해서 token과 비교하고 evaluateTop함수 실행
+                operatorStack.push(token);    //연산자 스텍에 token을 푸쉬하기
+            }
+        }
+
+        while (!operatorStack.empty()) {  //연산자 스텍이 비어있지 않을경우
+            evaluateTop(operandStack, operatorStack);   // evaluatetop 함수 실행
+        }
+
+        T result = operandStack.top();    //결과에 피연산자 스텍의 top을 가져옴(175줄 try문 보면 이유 알수있음)
+        operandStack.pop();
+
+        ofstream outputFile(outputFilename);      //외부 파일로 저장하는 부분
+        if (outputFile.is_open()) {
+            outputFile << "결과값은: " << result << " 입니다." << endl;
+            outputFile.close();
+            cout << "결과값은 " << outputFilename << "으로 저장됐습니다." << endl;
+        }
+        else {
+            cout << "저장 파일을 열 수 없습니다." << endl;
+        }
+    }
+
+private:
+    bool hasPrecedence(char op1, char op2) {     //연산자 우선순위 비교 함수( 인자값으로 문자형 op1, op2 가져옴)
+        if ((op1 == '*' || op1 == '/') && (op2 == '+' || op2 == '-')) {  //op1이 곱셈이나 나누기고 op2가 +나-이면
+            return true;       // op1이 op2보다 우선순위 높다고 판단하고 true 반환
+        }
+        return false;    // op1이 +나-이고 op2가 *나 %이면 op1이 op2보다 우선순위 낮으니까 false 반환
+    }
+
+    void evaluateTop(stack<T>& operandStack, stack<char>& operatorStack) {
+        char op = operatorStack.top();   //연산자 스텍에서 연산자 가져오기
+        operatorStack.pop();
+
+        T b = operandStack.top();        //피연산자 스텍에서 피연산자 가져오기
+        operandStack.pop();
+
+        T a = operandStack.top();     //피연산자 스텍에서 피연산자 가져오기
+        operandStack.pop();
+
+        T result;
+        Calculator* calculator = NULL;
+
+        switch (op) {
+        case '+':
+            calculator = new Addition();
+            break;
+        case '-':
+            calculator = new Subtraction();
+            break;
+        case '*':
+            calculator = new Multiplication();
+            break;
+        case '/':
+            calculator = new Division();
+            break;
+        }
+
+        try {
+            result = calculator->calculate(a, b);
+            operandStack.push(result);   // 결과를 피연산자 스텍에 저장
+        }
+        catch (const runtime_error) {
+            cout << "에러입니다. " << endl;
+            delete calculator;
+            return;
+        }
+
+        delete calculator;
+    }
+};
+
+int main() {
+    cout << "정수형 값이 제공되는 정수형 계산기입니다.(정수만 입력하시오)" << endl;
+    CalculatorProgram<int> intProgram;
+    intProgram.run();
+
+    cout << "실수형 값이 제공되는 실수형 계산기입니다." << endl;
+    CalculatorProgram<double> doubleProgram;
+    doubleProgram.run();
+
+    return 0;
+}

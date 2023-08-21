@@ -1,24 +1,67 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <title>Unicon Vaping</title>
-    <meta charset="utf-8">
-    <style>
-      body {
-        font-family: Arial, sans-serif;
-        background-color: #f5f5f5;
-        margin: 0;
-        padding: 0;
-      }
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Unicon Vaping</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+			box-sizing: border-box;
+		}
+		.container{
+		
+			background: linear-gradient(rgba(0,0,0,0.3),rgba(0,0,0,0.3)),url(homepage.jpg);
+		}
+		.container .header{
+			width: 80%;
+			height: 80px;
+			margin: 0 auto;
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+		}
 
-      .header {
-        text-align: center;
-        background-color: #333;
-        color: #fff;
-        padding: 20px;
-      }
+		.container .header h1 a{
+			text-decoration: none;
+			color: white;
+		}
 
-      .menu {
+		.container .nav ul li{
+			display: inline-block;
+			margin: 0 10px;
+		}
+
+		.container .nav ul li a{
+			text-decoration: none;
+			color: white;
+		}
+
+		.container .nav ul li a:hover{
+			color: #1fdfdf;
+		}
+
+		.container .hero {
+			position: absolute;
+			left: 50%;
+			top: 50%;
+			transform: translate(-50%,-50%);
+			color: white;
+			text-align: center;
+			font-family: Verdana, Geneva, Tahoma, sans-serif;
+		}
+
+		.container .hero h2{
+			font-size: 60px;
+			margin-bottom: 20px;
+		}
+
+		.container .hero p{
+			font-size: 22px;
+		}
+
+		.menu {
         text-align: center;
         background-color: #eee;
         padding: 10px;
@@ -31,14 +74,15 @@
         margin: 0 10px;
       }
 
-      .content {
+      .container .content {
         padding: 20px;
-        background-color: #fff;
+       
         box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
       }
 
       h1 {
         margin-top: 0;
+        color: white;
       }
 
       .liquid {
@@ -58,20 +102,24 @@
         object-fit: cover;
         margin-bottom: 10px;
       }
-    </style>
-  </head>
-  <body>
-    <div class="header">
-      <h1>Unicon Vaping</h1>
-    </div>
-    <div class="menu">
-      <a href="index.html">홈</a>
-      <a href="vaping_liquid.html">Vaping 액상</a>
-      <a href="vaping_device.html">Vaping 기기</a>
-      <a href="vaping_community.html">Vaping 기기/액상 후기</a>
-      <a href="offline_shop.html">오프라인 Vaping Shop</a>
-    </div>
-    <div class="content">
+
+	</style>
+</head>
+<body>
+	<div class="container">
+		<div class="header">
+			<h1><a href="#">Unicon Vaping</a></h1>
+			<div class="nav">
+				<ul>
+					<li><a href="index.html">홈</a></li>
+					<li><a href="vaping_liquid.html">Vaping 액상</a></li>
+					<li><a href="vaping_device.html">Vaping 기기</a></li>
+					<li><a href="vaping_community.html">Vaping 액상/기기 후기</a></li>
+					<li><a href="offline_shop.html">오프라인 vaping shop</a></li>
+				</ul>
+			</div>
+		</div>
+		<div class="content">
       <h1>유니콘의 액상 추천</h1>
       <div class="liquid">
         <img src="liquid1.png" alt="blvk 스피아민트">
